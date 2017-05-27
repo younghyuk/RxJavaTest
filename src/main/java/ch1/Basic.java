@@ -22,13 +22,24 @@
  * SOFTWARE.
  */
 
+package ch1;
+
+import rx.Observable;
+
 /**
- * Main Class
+ * 기초적인 RxJava 구현.
  * Created by yyhyo on 2017-05-27.
  */
-public class Main {
+public class Basic {
     public static void main(String[] args) {
-        System.out.println("Rx Java Start !!");
+        Basic basic = new Basic();
+        basic.testBasic();
     }
 
+    private void testBasic() {
+        Observable.create(s -> {
+            s.onNext("Hello World");
+            s.onCompleted();
+        }).subscribe(System.out::println);
+    }
 }
